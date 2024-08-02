@@ -1,0 +1,484 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lost and Found Portal</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <a class="navbar-brand" href="#">
+            <img src="image/bccl_logo.jpg" alt="BCCL Logo" class="d-inline-block align-top" height="50">
+        </a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav">
+                <li class="nav-item">
+                    <a class="nav-link active" href="index.html">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="about.html">About Us</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="report.html">Report items</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="claim.html">Claim missing</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="feedback.html">Feedback</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="contact.html">Contact us</a>
+                </li>
+            </ul>
+            <div class="d-flex">
+                <button type="button" class="btn btn-outline-dark shadow-none me-lg-3 me-2 mr-2" data-toggle="modal" data-target="#loginModal">
+                    Login
+                </button>
+                <button type="button" class="btn btn-outline-dark shadow-none me-lg-3" data-toggle="modal" data-target="#registerModal">
+                    Register
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <div class="modal fade" id="loginModal" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <form id="login-form">
+                    <div class="modal-header">
+                        <h5 class="modal-title d-flex align-items-center">
+                            <i class="bi bi-person-circle fs-3 me-2"></i> User Login
+                        </h5>
+                        <button type="reset" class="btn-close shadow-none" data-dismiss="modal" aria-label="Close">x</button>
+                    </div>
+                    <div class="modal-body">
+                        <div class="mb-3">
+                            <label class="form-label">Email / Mobile</label>
+                            <input type="text" name="email_mob" required class="form-control shadow-none">
+                        </div>
+                        <div class="mb-4">
+                            <label class="form-label">Password</label>
+                            <input type="password" name="pass" required class="form-control shadow-none">
+                        </div>
+                        <div class="d-flex align-items-center justify-content-between mb-2">
+                            <button type="submit" class="btn btn-dark shadow-none">LOGIN</button>
+                            <button type="button" class="btn text-secondary text-decoration-none shadow-none p-0" data-toggle="modal" data-target="#forgotModal" data-dismiss="modal">
+                                Forget Password?
+                            </button>
+                        </div>
+                    </div>
+                    
+                </form>
+            
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade" id="registerModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <form id="register-form">
+                    <div class="modal-header">
+                        <h5 class="modal-title d-flex align-items-center">
+                        <i class="bi bi-person-lines-fill fs-3 me-2"></i>User Registeration
+                        </h5>
+                        <button type="reset" class="btn-close shadow-none" data-dismiss="modal" aria-label="Close">x</button>
+                    </div>
+                    <div class="modal-body">
+                        <span class="badge bg-light text-dark mb-3 text-wrap lh-base">
+                        Note: Your details must match with your ID (Aadhaar card, passport, driving license, etc.)
+                        that will required during check-in.
+                        </span>
+                        <div class="container-fluid">
+                            <div class="row">
+                                <div class="col-md-6 ps-0 mb-3">
+                                    <label class="form-label">Name</label>
+                                    <input name="name" type="text" class="form-control shadow-none" required>
+                                </div>
+                                <div class="col-md-6 p-0 mb-3">
+                                    <label class="form-label">Email </label>
+                                    <input name="email" type="email" class="form-control shadow-none" required>
+                                </div>
+                                <div class="col-md-6 ps-0 mb-3">
+                                    <label class="form-label">Phone Number</label>
+                                    <input name="phonenum" type="number" class="form-control shadow-none" required>
+                                </div>
+                                <div class="col-md-6 p-0 mb-3">
+                                    <label class="form-label">Picture</label>
+                                    <input name="profile" type="file" accept=".jpg, .jpeg, .png, .webp" class="form-control shadow-none" required>
+                                </div>
+                                <div class="col-md-12 p-0 mb-3">
+                                    <label class="form-label">Address</label>
+            
+                                    <textarea name="address" class="form-control shadow-none" rows="1" required></textarea>
+                                </div>
+                                <div class="col-md-6 ps-0 mb-3">
+                                    <label class="form-label">Pincode</label>
+                                    <input name="pincode" type="number" class="form-control shadow-none" required>
+                                </div>
+                                <div class="col-md-6 p-0 mb-3">
+                                    <label class="form-label">Date of birth</label>
+                                    <input name="dob" type="date" class="form-control shadow-none" required>
+                                </div>
+                                <div class="col-md-6 ps-0 mb-3">
+                                    <label class="form-label">Password</label>
+                                    <input name="pass" type="password" class="form-control shadow-none" required>
+                                </div>
+                                <div class="col-md-6 p-0 mb-3">
+                                    <label class="form-label">Confirm Password</label>
+                                    <input name="cpass" type="password" class="form-control shadow-none" required>
+                                </div>
+                            
+                            </div>
+                        </div>
+                        <div class="text-center my-1">
+                            <button type="submit" class="btn btn-dark shadow-none">REGISTER</button>
+                        </div>
+                    </div>
+            </form>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade" id="forgotModal" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <form id="forgot-form">
+                    <div class="modal-header">
+                        <h5 class="modal-title d-flex align-items-center">
+                            <i class="bi bi-person-circle fs-3 me-2"></i> Forgot Password
+                        </h5>
+                    </div>
+                    <div class="modal-body">
+                        <span class="badge bg-light text-dark mb-3 text-wrap lh-base">
+                            Note: A link will be sent to your email to reset your password!
+                        </span>
+                        <div class="mb-4">
+                            <label class="form-label">Email</label>
+                            <input type="email" name="email" required class="form-control shadow-none">
+                        </div>
+                        <div class="mb-2 text-end">
+                            <button type="button" class="btn shadow-none p-0 me-2" data-toggle="modal" data-target="#loginModal" data-dismiss="modal">
+                                CANCEL
+                            </button>
+                            <button type="submit" class="btn btn-dark shadow-none">SEND LINK</button>
+                        </div>
+                    </div>
+                    
+                </form>
+            
+            </div>
+        </div>
+    </div>
+
+    <!-- Hero Section -->
+    <header class="hero-section text-center">
+        <h1>Welcome to the Lost and Found Portal</h1>
+        <p>Your easy solution for finding lost belongings.</p>
+    </header>
+
+    <!-- Search Bar Section -->
+    <section class="search-bar-section text-center">
+        <div class="container">
+            <h2>Search for Your Lost Item</h2>
+            <div class="search-bar">
+                <input type="text" id="searchInput" placeholder="Enter item name...">
+                <button id="searchButton">Search</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Content Section -->
+    <main class="container">
+        <!-- About Us Section -->
+        <section id="about-us" class="my-4">
+            <h2 class="animated-header">About Us</h2>
+            <div class="row">
+                <div class="col-md-6">
+                    <p>Traditionally, finding lost belongings was a tough and time-consuming task. With changing technology, every process needs to be more technical and easier to use, saving time and effort for those in need. Office staff used to rely on pen and paper, with several layers of substantiation, which not only slowed down the process but also allowed for potential misuse of power.</p>
+                    <p>This portal has been developed to tackle these major issues along with other minor problems. The development of this new system contains activities aimed at developing an online application with a database integration approach. Users get their user ID and password to access their accounts. The database system administrator has multiple features such as adding, deleting, and updating information.</p>
+                    <p>The major aim of this project is to provide a fast, easy, secure, and optimized platform for people in need of our company’s facilities and services. The traditional methods were time-consuming and physically tiring. This project aims to help people use our company’s portal with ease from home. This portal provides simple lost and found solutions, offering a full-featured website that is flexible and user-friendly.</p>
+                </div>
+                <div class="col-md-6">
+                    <img src="image/container.jpg" alt="Lost and Found" class="img-fluid rounded animated-image">
+                </div>
+            </div>
+        </section>
+
+        <!-- Categories Section -->
+        <section id="categories" class="my-4">
+            <h2 class="animated-header">Categories</h2>
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="category-card">
+                        <img src="image/electronics.jpg" alt="Electronics" class="img-fluid rounded">
+                        <h3>Electronics</h3>
+                        <p>Find your lost electronic gadgets like mobile phones, laptops, cameras, etc.</p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="category-card">
+                        <img src="image/accessories.jpg" alt="Accessories" class="img-fluid rounded">
+                        <h3>Accessories</h3>
+                        <p>Lost your accessories? Search for watches, jewelry, glasses, and more.</p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="category-card">
+                        <img src="image/documents.jpg" alt="Documents" class="img-fluid rounded">
+                        <h3>Documents</h3>
+                        <p>Retrieve your important documents such as ID cards, passports, and certificates.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- How It Works Section -->
+    <section id="how-it-works" class="py-5">
+        <div class="container position-relative">
+            <h2 class="animated-header text-center">How It Works</h2>
+            <div class="arrow-container">
+                <button class="btn btn-black" id="prev-how-it-works">
+                    <i class="fas fa-chevron-up"></i>
+                </button>
+                <button class="btn btn-black" id="next-how-it-works">
+                    <i class="fas fa-chevron-down"></i>
+                </button>
+            </div>
+            <div class="how-it-works-wrapper" id="how-it-works-wrapper">
+                <div class="how-it-works-card">
+                    <div class="how-it-works-icon">
+                        <i class="fas fa-search"></i>
+                    </div>
+                    <h3>Step 1: Report</h3>
+                    <p>User reports a lost item using the portal's interface.</p>
+                </div>
+                <div class="how-it-works-card">
+                    <div class="how-it-works-icon">
+                        <i class="fas fa-database"></i>
+                    </div>
+                    <h3>Step 2: Database Entry</h3>
+                    <p>The item details are stored in the database securely.</p>
+                </div>
+                <div class="how-it-works-card">
+                    <div class="how-it-works-icon">
+                        <i class="fas fa-search-location"></i>
+                    </div>
+                    <h3>Step 3: Search</h3>
+                    <p>Users can search for their lost items using various filters.</p>
+                </div>
+                <div class="how-it-works-card">
+                    <div class="how-it-works-icon">
+                        <i class="fas fa-check"></i>
+                    </div>
+                    <h3>Step 4: Verification</h3>
+                    <p>Admin verifies the claim and matches it with found items.</p>
+                </div>
+                <div class="how-it-works-card">
+                    <div class="how-it-works-icon">
+                        <i class="fas fa-handshake"></i>
+                    </div>
+                    <h3>Step 5: Return</h3>
+                    <p>Verified items are returned to their rightful owners.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section id="testimonials" class="py-5">
+        <div class="container">
+            <h2 class="animated-header text-center">What Our Users Say</h2>
+            <div class="row">
+                <!-- Testimonial 1 -->
+                <div class="col-md-4">
+                    <div class="testimonial-card bg-light-blue text-dark">
+                        <div class="testimonial-icon">
+                            <i class="bi bi-quote"></i>
+                        </div>
+                        <p>"This portal made it so easy to find my lost wallet. The process was smooth and the notifications were timely. Highly recommend!"</p>
+                        <h5>- John Doe</h5>
+                        <small>Verified User</small>
+                    </div>
+                </div>
+                <!-- Testimonial 2 -->
+                <div class="col-md-4">
+                    <div class="testimonial-card bg-light-green text-dark">
+                        <div class="testimonial-icon">
+                            <i class="bi bi-quote"></i>
+                        </div>
+                        <p>"I found a lost phone and the system helped me connect with the owner quickly. Great job on making this easy and efficient!"</p>
+                        <h5>- Jane Smith</h5>
+                        <small>Verified Finder</small>
+                    </div>
+                </div>
+                <!-- Testimonial 3 -->
+                <div class="col-md-4">
+                    <div class="testimonial-card bg-light-yellow text-dark">
+                        <div class="testimonial-icon">
+                            <i class="bi bi-quote"></i>
+                        </div>
+                        <p>"The lost and found portal is a lifesaver! I was able to report my lost keys and get them back in no time. Thank you!"</p>
+                        <h5>- Emily Johnson</h5>
+                        <small>Verified User</small>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Latest Updates Section -->
+    <section id="latest-updates" class="py-5">
+        <div class="container position-relative">
+            <h2 class="animated-header text-center">Latest Updates</h2>
+            <div class="arrow-container">
+                <button class="btn btn-light" id="prev-updates">
+                    <i class="fas fa-chevron-left"></i>
+                </button>
+                <button class="btn btn-light" id="next-updates">
+                    <i class="fas fa-chevron-right"></i>
+                </button>
+            </div>
+            <div class="latest-updates-wrapper" id="updates-wrapper">
+                <div class="update-card">
+                    <div class="update-icon">
+                        <i class="fas fa-bell"></i>
+                    </div>
+                    <h3>New Feature Launch</h3>
+                    <p>We have launched a new feature to enhance user experience. Check it out now!</p>
+                </div>
+                <div class="update-card">
+                    <div class="update-icon">
+                        <i class="fas fa-bell"></i>
+                    </div>
+                    <h3>Security Update</h3>
+                    <p>We have updated our security protocols to ensure your data is safe with us.</p>
+                </div>
+                <div class="update-card">
+                    <div class="update-icon">
+                        <i class="fas fa-bell"></i>
+                    </div>
+                    <h3>Improved UI</h3>
+                    <p>Our user interface has been revamped for a more intuitive and seamless experience.</p>
+                </div>
+                <div class="update-card">
+                    <div class="update-icon">
+                        <i class="fas fa-bell"></i>
+                    </div>
+                    <h3>New Partnerships</h3>
+                    <p>We have partnered with leading brands to bring you more value and services.</p>
+                </div>
+                <div class="update-card">
+                    <div class="update-icon">
+                        <i class="fas fa-bell"></i>
+                    </div>
+                    <h3>User Feedback</h3>
+                    <p>Your feedback is invaluable. We have implemented changes based on your suggestions.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Us Section -->
+    <section id="contact-us" class="py-5">
+        <div class="container">
+            <h2 class="animated-header text-center">Contact Us</h2>
+            <div class="row">
+                <!-- Contact Details -->
+                <div class="col-md-6">
+                    <div class="contact-details bg-light">
+                        <h3>Get in Touch</h3>
+                        <p>If you have any questions or need further assistance, please feel free to reach out to us through the following contact details:</p>
+                        <ul>
+                            <li><i class="bi bi-geo-alt"></i> 1234 Street Name, City, State, 12345</li>
+                            <li><i class="bi bi-telephone"></i> +1 (234) 567-8900</li>
+                            <li><i class="bi bi-envelope"></i> support@example.com</li>
+                        </ul>
+                    </div>
+                </div>
+                <!-- Contact Form -->
+                <div class="col-md-6">
+                    <div class="contact-form bg-light">
+                        <h3>Send Us a Message</h3>
+                        <form id="contact-form">
+                            <div class="form-group">
+                                <label for="name">Name</label>
+                                <input type="text" class="form-control" id="name" placeholder="Your Name" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="email">Email</label>
+                                <input type="email" class="form-control" id="email" placeholder="Your Email" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="message">Message</label>
+                                <textarea class="form-control" id="message" rows="4" placeholder="Your Message" required></textarea>
+                            </div>
+                            <button type="submit" class="btn btn-primary">Send Message</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Advanced Footer -->
+    <footer class="text-center py-4 advanced-footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4">
+                    <h5>Contact Us</h5>
+                    <ul class="list-unstyled">
+                        <li><a href="mailto:info@lostandfound.com"><i class="bi bi-envelope"></i> info@lostandfound.com</a></li>
+                        <li><a href="tel:+1234567890"><i class="bi bi-telephone"></i> +1 234 567 890</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-4">
+                    <h5>Quick Links</h5>
+                    <ul class="list-unstyled">
+                        <li><a href="#about-us"><i class="bi bi-info-circle"></i> About Us</a></li>
+                        <li><a href="#categories"><i class="bi bi-card-list"></i> Categories</a></li>
+                        <li><a href="#search"><i class="bi bi-search"></i> Search</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-4">
+                    <h5>Follow Us</h5>
+                    <ul class="list-unstyled social-icons">
+                        <li><a href="#"><i class="bi bi-facebook"></i></a></li>
+                        <li><a href="#"><i class="bi bi-twitter"></i></a></li>
+                        <li><a href="#"><i class="bi bi-instagram"></i></a></li>
+                        <li><a href="#"><i class="bi bi-linkedin"></i></a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="newsletter mt-4">
+                <h5>Subscribe to Our Newsletter</h5>
+                <form id="newsletterForm">
+                    <div class="input-group">
+                        <input type="email" class="form-control" placeholder="Enter your email" required>
+                        <div class="input-group-append">
+                            <button class="btn btn-primary" type="submit">Subscribe</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+        <p>&copy; 2024 Lost and Found Portal. All rights reserved.</p>
+    </footer>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="scripts.js"></script>
+</body>
+</html>
