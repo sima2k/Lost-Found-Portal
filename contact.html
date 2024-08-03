@@ -23,7 +23,7 @@
         color: #fff;
         text-align: center;
         position: relative;
-        background: url('contact-bg.jpg') no-repeat center center fixed;
+        background: url('pexels-pixabay-33153.jpg') no-repeat center center fixed;
         background-size: cover;
     }
 
@@ -86,7 +86,7 @@
             border-image: linear-gradient(405deg, #f3ec78, #af4261, #4fd1c5, #a6c1ee) 1;
         }
     }
-
+    
     .contact-card:hover {
         transform: translateY(-10px);
         box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
@@ -123,22 +123,18 @@
         transform: translateY(-3px);
     }
 
-    footer {
-        background-color: #343a40;
-        color: #fff;
-        padding: 20px 0;
-    }
-
-    footer p {
-        margin: 0;
-    }
-
     @keyframes text-glow {
         0% {
-            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3), 0 0 10px rgba(255, 255, 255, 0.5);
+            transform: rotateX(0deg) rotateY(0deg);
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3), 0 0 10px rgba(255, 255, 255, 0.3);
+        }
+        50% {
+            transform: rotateX(180deg) rotateY(180deg);
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3), 0 0 20px rgba(255, 255, 255, 0.5);
         }
         100% {
-            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3), 0 0 20px rgba(255, 255, 255, 0.8);
+            transform: rotateX(3600deg) rotateY(360deg);
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3), 0 0 30px rgba(255, 255, 255, 0.8);
         }
     }
 
@@ -374,7 +370,7 @@
                 <div class="col-md-4">
                     <h5>Quick Links</h5>
                     <ul class="list-unstyled">
-                        <li><a href="#about-us"><i class="bi bi-info-circle"></i> About Us</a></li>
+                        <li><a href="about.html"><i class="bi bi-info-circle"></i> About Us</a></li>
                         <li><a href="#categories"><i class="bi bi-card-list"></i> Categories</a></li>
                         <li><a href="#search"><i class="bi bi-search"></i> Search</a></li>
                     </ul>
